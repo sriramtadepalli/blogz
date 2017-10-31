@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--    <h1>Build a Blog</h1>
+    
+
+    <hr />
+
+    task_id = int(request.form['task-id'])
+    task = task.query.get(task_id) -->     
+
+    {% if blogs|length == 0 %}
+    <p>No Posts yet</p>
+    {% else %}
+
+        <ul>
+            {% for blog in blogs %}
+
+            <li><a href="/blog?id={{blog.id}}">{{blog.title}} </a>{{blog.body}} 
+            
+            
+                <p class="forBorder">Written By: <a href="/blog?userid={{blog.owner.id}}">{{blog.owner.username}}</a></p>
+            
+            
+            
+            </li>
+            
+
+      
+            
+            
+              
+
+
+            
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+{% endblock %}
